@@ -17,7 +17,7 @@ fi
 wl-copy --clear
 
 #Take a screenshot with Spectacle in Region mode, to clipboard, supressing notifs (which hangs spectacle otherwise)
-spectacle -bcrsn
+spectacle -bcrsn > /dev/null
 
 #Get relevant information of the window below the mouse cursor.
 windowid=$(kdotool getmouselocation --shell | grep WINDOW)
@@ -27,9 +27,9 @@ windowid=${windowid//"WINDOW="/}
 
 #Get pid of process for filename
 windowpid=$(kdotool getwindowpid $windowid)
-echo $windowpid
+#echo $windowpid
 windowname=$(ps -p $windowpid -o comm=)
-echo $windowname
+#echo $windowname
 
 #Strip spaces from process name if there
 windowname=${windowname// /}
