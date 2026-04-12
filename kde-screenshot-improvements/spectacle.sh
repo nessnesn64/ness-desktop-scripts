@@ -17,7 +17,7 @@ fi
 wl-copy --clear
 
 #Take a screenshot with Spectacle in Region mode, to clipboard, supressing notifs (which hangs spectacle otherwise)
-spectacle -bcrsn > /dev/null
+spectacle -bcrs > /dev/null
 
 #Get relevant information of the window below the mouse cursor.
 windowid=$(kdotool getmouselocation --shell | grep WINDOW)
@@ -57,7 +57,7 @@ if wl-paste -l | grep -q 'image';
 then
 	#echo "picture found"
 	#Output clipboard to Screenshots for archiving
-	wl-paste > $HOME/Pictures/Screenshots/$(date +%Y)/$(date +%B)/$windowname-$(date '+%Y-%m-%d-%T').png
+	wl-paste > $HOME/Pictures/Screenshots/$(date +%Y)/$(date +%B)/$windowname-$(date '+%Y-%m-%d-%T'.png)
 else
 	exit
 fi
